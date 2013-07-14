@@ -1,0 +1,108 @@
+% LaTeX file for resume 
+% This file uses the resume document class (res.cls)
+
+\documentclass{res} 
+%\usepackage{helvetica} % uses helvetica postscript font (download helvetica.sty)
+%\usepackage{newcent}   % uses new century schoolbook postscript font 
+\usepackage{hyperref}
+\newsectionwidth{0pt}  % So the text is not indented under section headings
+\setlength{\textheight}{10.2in} % set text height big enough for box
+\topmargin=-.5in       % to start box .5in from top of page
+\oddsidemargin=-.5in   % to start box .5in from left of page
+    
+\begin{document}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The following lines define \boxaround, used to draw a box on the page.
+% The parameter is the entire text of the resume. Must fit on one page!
+%
+% \boxaroundhmargin is the left & right margin around the text inside the box.
+% \boxaroundvmargin is the top & bottom margin around the text inside the box.
+% \boxrulethickness controls thickness of line used to draw the box.
+% You can change these 3 things in the lines below:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newdimen\boxrulethickness\newdimen\boxaroundhmargin\newdimen\boxaroundvmargin
+\boxrulethickness=.5pt        %controls thickness of line 
+\boxaroundhmargin=35pt        % about a half inch
+\boxaroundvmargin=40pt        % to fit more text on page, make this smaller
+%%%%%%%%%%%%%%%%%%%%%%%%% Don't read this stuff %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hsize=7.5in% \vsize=10.5in             % use bigger dimensions for box
+\newbox\MACboxA  \newdimen\MACdimenA
+% \borderandboxit is used inside \boxaround:
+\def\borderandboxit#1#2#3{\vbox{\hrule height#2\hbox{\vrule width#2\hskip#1\hskip-#2%
+  \vbox{\vskip#1\relax#3\vskip#1}\hskip#1\hskip-#2\vrule width#2}\hrule height#2}}
+%
+\long\def\boxaround#1{\vskip6pt
+  {\MACdimenA=\hsize \advance\MACdimenA by-\boxaroundhmargin
+   \advance\MACdimenA by-\boxaroundhmargin   % once for each side
+   \setbox\MACboxA=\hbox to \hsize{\hskip\boxaroundhmargin%\hss
+                     \vbox{\hsize=\MACdimenA
+                           \vskip\boxaroundvmargin #1
+                           \vskip\boxaroundvmargin}\hss}%
+   \borderandboxit{0pt}\boxrulethickness{\box\MACboxA}}%
+  \vskip2pt plus0pt minus0pt
+}
+%%%%%%%%%%%%%%%%%%%  End of \boxaround macro %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\boxaround{ % put the text on the page inside a box  
+
+% Insert personal details.
+\input{personal.tex}
+
+ 
+\begin{resume}
+
+\section{\sl  Profile}  % with postscript font \sl produces bold italic 
+% with default font (CM) \sl produces slanted type 
+I am a passionate and proficient C\# Developer with 18 months experience
+in a fast-paced startup producing code to a consistently high standard in
+multiple programming languages. I am constantly expanding my skills, and 
+apply my knowledge to implement a range of practical solutions that 
+fulfill the requirements. I possess a proven track record of 
+developing applications and am seeking a role that will utilise
+and expand on these skills.
+
+\section{\sl  Skills Summary}
+\begin{itemize}
+\item C\#, Scala
+\item Entity Framework, Windows Phone 6.1 \& 7.5, LINQ
+\item SQL Server 2005/2008
+\item Android, RoboSpice, Scaloid
+\item JSON REST services
+\item \url{https://github.com/LambdaSix}
+\end{itemize}
+ 
+\section{\sl  Employment History}
+\begin{ncolumn}{2}
+{\it Routemonkey}  &   January 2012 - June 2013
+\end{ncolumn}\\
+Software Engineer -  \\
+\begin{itemize}
+\item Range of projects from prototype to delivery
+\item Developed Windows Phone 7.5 applications in C#/Silverlight
+\item Developed Android applications in Scala/Java
+\item Developed bespoke desktop applications in C#/.Net
+\item Maintained codebases in other languages (VB.Net, Python, C)
+\item Managed Linux based Amazon Elastic Computing 2 servers
+\item Worked with business users to deliver finished products
+\end{itemize}
+
+
+\begin{ncolumn}{2}
+{\it Reed Specialist Recruitment}  &   December 2010 - August 2011
+\end{ncolumn}\\
+Data Entry -  \\
+\begin{itemize}
+\item Transcribed data from handwritten documents to digital system
+\item Ensured accuracy of entered information
+\item Aided co-workers with difficult to read handwriting on documents
+\end{itemize}
+ 
+\begin{center}
+\it References available on request
+\end{center}
+
+\end{resume}
+
+\vfill} %    end the material being boxed.
+\end{document}
